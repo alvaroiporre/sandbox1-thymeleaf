@@ -13,9 +13,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class RequestPramsController {
 
   @GetMapping("/foo")
-  public ParamsDto foo(@RequestParam(required = false) String message) {
+  public ParamsDto foo(@RequestParam(required = false, defaultValue = "No content in param message", name = "mensaje") String message) {
     ParamsDto param = new ParamsDto();
-    param.setMessage(message != null? message: "No content in param message");
+    param.setMessage(message);
     return param;
   }
 }
